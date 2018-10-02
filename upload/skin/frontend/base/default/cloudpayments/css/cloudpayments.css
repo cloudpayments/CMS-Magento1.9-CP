@@ -1,0 +1,14 @@
+/* ============================================ *
+ * Cloudpayments Pay
+ * ============================================ */
+.cloudpayments-process-pay .col-main {
+    padding: 0;
+    text-align: center;
+}
+.cloudpayments-process-pay .buttons-set {
+    margin: 10px 0;
+    text-align: center;
+}
+.cloudpayments-process-pay .buttons-set button.cloudpayments-widget {
+    float: none;
+}
