@@ -13,7 +13,7 @@
                 title="<?php echo Mage::helper('core')->quoteEscape($this->__('Pay')) ?>">
             <span><span><?php echo $this->__('Pay') ?></span></span></button>
     </div>
-    <script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
+    <script src="https://widget.cloudpayments.ru/bundles/cloudpayments?cms=Magento"></script>
     <script>
         var widget = new cp.CloudPayments({language: '<?= $this->getLang() ?>'});
         widget.<?php echo $this->getStepMethod() ?>(<?php echo json_encode($this->getWidgetParams()) ?>, '<?php echo $this->getSuccessPage() ?>', '<?php echo $this->getErrorPage() ?>');

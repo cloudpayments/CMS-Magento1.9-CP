@@ -48,6 +48,7 @@ class Cloudpayments_Widget_Block_Widget extends Mage_Core_Block_Template
             "invoiceId" => $this->_order->getIncrementId(),
             "accountId" => $this->_order->getCustomerEmail(),
             "email" => $this->_order->getCustomerEmail(),
+	        "skin" => $this->_payment->getConfigData('skin'),
             "data" => [
                 "name" => $this->_order->getCustomerName(),
                 "phone" => $this->_order->getShippingAddress()->getTelephone(),
@@ -73,6 +74,7 @@ class Cloudpayments_Widget_Block_Widget extends Mage_Core_Block_Template
         $receiptData = [
             'Items' => [],
             'taxationSystem' => $payment->getConfigData('taxation_system'),
+	        'calculationPlace'=>'www.'.$_SERVER['SERVER_NAME'],
             'email' => $order->getCustomerEmail(),
             'phone' => $order->getShippingAddress()->getTelephone()
         ];
@@ -154,22 +156,8 @@ class Cloudpayments_Widget_Block_Widget extends Mage_Core_Block_Template
      */
     public function getLang()
     {
-        $map = array(
-            'ru_RU' => 'ru-RU', //Russian
-            'en_GB' => 'en-US', //English
-            'en_US' => 'en-US', //English
-            'lv_LV' => 'lv', //Latvian
-            'az_AZ' => 'az', //Azerbaijani
-            //'' => 'kk', //Kazakh (Russian)
-            //'' => 'kk-KZ', //Kazakh
-            'uk_UA' => 'uk', //Ukrainian
-            'pl_PL' => 'pl', //Polish
-            'pt_BR' => 'pt', //Portuguese
-            'pt_PT' => 'pt', //Portuguese
-        );
-        $curLocale = Mage::app()->getLocale()->getLocaleCode();
-
-        return isset($map[$curLocale]) ? $map[$curLocale] : 'en-US';
+        $widget_lang = $this->_payment->getConfigData('lang');
+        return $widget_lang;
     }
 
     /**

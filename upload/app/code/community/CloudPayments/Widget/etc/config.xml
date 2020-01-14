@@ -2,7 +2,7 @@
 <config>
     <modules>
         <CloudPayments_Widget>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
         </CloudPayments_Widget>
     </modules>
     <global>
